@@ -337,6 +337,3 @@ DEPENDENCIES
   tzinfo-data
   webdrivers (~> 4.0)
   will_paginate
-
-BUNDLED WITH
-   2.1.2
