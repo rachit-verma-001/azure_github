@@ -3,7 +3,7 @@ class Api::V1::CompaniesController < ApplicationController
 
   def create
     cparams = company_params
-
+#comment
     cparams[:foundation_year]=Date.parse(params[:foundation_year]).year if params[:foundation_year].present?
     company = CompanyDetail.create!(cparams)
     render json:{success:true, company:company}
