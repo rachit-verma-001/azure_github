@@ -25,7 +25,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'devise_token_auth'
 gem 'tiddle'
 gem "httparty"
-
+gem 'sidekiq'
+gem 'whenever'
 
 gem 'will_paginate'
 gem 'country_select'
@@ -35,7 +36,7 @@ gem 'city-state'
 gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'linkedin-scraper'
-
+gem 'geckodriver-helper'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 gem "linkedin-oauth2", "~> 1.0"
@@ -43,6 +44,7 @@ gem "linkedin-oauth2", "~> 1.0"
  gem 'selenium-webdriver'
  gem 'nokogiri'
  gem 'dotenv-rails'
+ gem 'chromedriver-helper'
  gem 'webdrivers', '~> 4.0'
 gem "letter_opener", group: :development
 

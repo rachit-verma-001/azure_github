@@ -1,9 +1,9 @@
 class CompanyDetail < ApplicationRecord
   has_many :employee_details, dependent: :destroy
-
+  serialize :posts
   validates_presence_of :name,:company_type,:url
   validates_uniqueness_of :url
-
+  has_one :line
   before_save :add_default_progress
 
   PAGE = 1

@@ -3,7 +3,7 @@ class Api::V1::CompaniesController < ApplicationController
 
   def create
     cparams = company_params
-#comment
+
     cparams[:foundation_year]=Date.parse(params[:foundation_year]).year if params[:foundation_year].present?
     company = CompanyDetail.create!(cparams)
     render json:{success:true, company:company}
@@ -18,9 +18,18 @@ class Api::V1::CompaniesController < ApplicationController
 
   def index
     companies = CompanyDetail.all
+    # companies = CompanyDetail.all&.order(created_at: :desc)
     render json:{success:true, companies:
       ActiveModelSerializers::SerializableResource.new(companies, each_serializer: Api::V1::CompaniesSerializer)}
   end
+
+
+  def sync
+    companies = CompanyDetail.where.not(id:params[[:id]])
+    companies&.update(resync_progress:params[:resync_progress]) if params[:resync_progress]
+    render json:{companies: CompanyDetail.all, success:true}
+  end
+
 
   def destroy
     if @company.destroy
